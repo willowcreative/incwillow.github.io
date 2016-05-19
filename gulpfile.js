@@ -5,7 +5,6 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-const imagemin = require('gulp-imagemin');
 
 var jsLibraries = [
     'bower_components/three.js/build/three.min.js',
@@ -45,10 +44,4 @@ gulp.task('watch', function() {
     gulp.watch('img/*', ['imagemin']);
 });
 
-gulp.task('imagemin', function() {
-    gulp.src('img/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest('dist/img'))
-});
-
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'imagemin']);
+gulp.task('default', ['lint', 'sass', 'scripts', 'watch']);

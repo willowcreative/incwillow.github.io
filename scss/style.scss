@@ -16,13 +16,10 @@ section {
 	height: 700px;
 	border: 1px solid red;
 	h2 {
-		background: #1d1f21;
-		background: -webkit-linear-gradient(#999, #000);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
+		color: #fff;
 		font-family: $tileFont;
 		font-size: 5em;
-		letter-spacing: -.08em;
+		
 		text-transform: uppercase;
 	}
 }
@@ -43,4 +40,8 @@ section {
 		left: 0;
 		z-index: 1;
 	}
+}
+
+.savemehades {
+	background: ;
 }

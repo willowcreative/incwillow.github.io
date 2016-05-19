@@ -11,13 +11,9 @@ section {
   height: 700px;
   border: 1px solid red; }
   section h2 {
-    background: #1d1f21;
-    background: -webkit-linear-gradient(#999, #000);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
     font-family: "Podkova", serif;
     font-size: 5em;
-    letter-spacing: -.08em;
     text-transform: uppercase; }
 
 .intro {
