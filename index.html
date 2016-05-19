@@ -1,101 +1,281 @@
 <!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+  <title>Willow Creative Inc.</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
 
-        <!-- Add your site or application content here -->
-        <header>
-            <h1>VR/AR tabletop game in Unity for Google's Cardboard</h1>
-            <h2>a proof of concept, <em>by Willow Creative Inc.</em></h2>
-        </header>
+  <link href='https://fonts.googleapis.com/css?family=Poppins:300,400|Podkova:700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="dist/css/style.css">
 
-        <section>
-            <img src="img/vr.jpg" />
-            <h2>Virtual Reality is going to be huge.</h2>
-            <p>A quick internet search for "VR 2015" will show you how it's all the rage for this year and next to come.</p>
-            <p>And they should be talking about it, because it is pretty awesome.</p>
-            <p>Most of the game projects, though, involve a complete VR immersion so far. <strong>Very little has been done with Augmented Reality in mind</strong>. Very little has been done with AR <em>at all</em>, which always baffles us when we think about it.</p>
-            <p><em>It's a lot of work</em>. The solutions are out there (we have a working one that we've put together over a weekend), but they need a lot of refinement. We can do that, yeah, but we need your help with everything else.</p>
-            <p>The flipside is, we can definitely get a cool <strong>simple PoC within three months</strong> if we get the help we need.</p>
-        </section>
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
 
-        <figure class="cdm"></figure>
+<body>
+  <!-- <h1>Willow</h1> -->
 
-        <section>
-            <h2>We need people.</h2>
-            <p>That's it. If you know Unity, UX/UI, modelling, rigging or animating (specially the last three) that would be amazing since we are very strong as developers already. But what we really want is cool, invested, passionate people, doesn't really matter at what.</p>
-            <ul>
-                <li>
-                    <h3>A strong PoC</h3>
-                    <p>Being a tabletop, a lot of the AI and scenarios that an usual game requires will not be necessary. That leaves us with a lot more  room and time than we normally would to build a strong gameplay and a stuning visual experience</p>    
-                </li>
-                <li>
-                    <h3>You get to decide</h3>
-                    <p>The project is open right now. Sure, we have tons of ideas for what the game design and how the art should look like, but we are leaving it undecided because we don't want people to do what we want, we want to reach a decision as a team</p>    
-                </li>
-                <li>
-                    <h3>Experience and Talent</h3>
-                    <p>Not to brag too much but all of us have been doing this for a while now. I, for one, have been at it for over a decade (hello Unity for mac only). We want to teach people what we know - and really want to learn from them things that we don't</p>    
-                </li>
-                <li>
-                    <h3>We ACTUALLY need you</h3>
-                    <p>We are starting up. We are few. We know we need people to grow and make this happen. We fully expect to hire (and pay!) interns if this becomes more than a PoC</p>    
-                </li>
-            </ul>
-        </section>
+  <section class="intro">
+    <h2>We Make Reality Cooler</h2>
+    <div id="birds"></div>
+  </section>
 
-        <figure class="boardgames"></figure>
+  <section>
+    
+  </section>
 
-        <section>
-            <h2>We've being doing this for a long time.</h2>
-            <p>From mobile games, to advergames, to applications, we are a small team with a very broad set of skills and experiences. Here are three of the more relevant to this project</p>
 
-            <ol>
-                <li>
-                    <iframe src="https://player.vimeo.com/video/105052581" width="100%" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                </li>
-                <li>
-                    <iframe src="https://player.vimeo.com/video/27173727" width="100%" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                </li>
-                <li>
-                    <iframe src="https://player.vimeo.com/video/58997975" width="100%" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                </li>
-            </ol>
-        </section>
+  <script src="dist/js/all.min.js"></script>
 
-        <section>
-            <h2><a href="mailto:incwillow@gmail.com">email us</a> in case you want to know more - or just talk or whatever</h2>
-        </section>
+  <script>
+      // Based on http://www.openprocessing.org/visuals/?visualID=6910
+      var Boid = function() {
+        var vector = new THREE.Vector3(),
+        _acceleration, _width = 500, _height = 500, _depth = 200, _goal, _neighborhoodRadius = 100,
+        _maxSpeed = 4, _maxSteerForce = 0.1, _avoidWalls = false;
+        this.position = new THREE.Vector3();
+        this.velocity = new THREE.Vector3();
+        _acceleration = new THREE.Vector3();
+        this.setGoal = function ( target ) {
+          _goal = target;
+        };
+        this.setAvoidWalls = function ( value ) {
+          _avoidWalls = value;
+        };
+        this.setWorldSize = function ( width, height, depth ) {
+          _width = width;
+          _height = height;
+          _depth = depth;
+        };
+        this.run = function ( boids ) {
+          if ( _avoidWalls ) {
+            vector.set( - _width, this.position.y, this.position.z );
+            vector = this.avoid( vector );
+            vector.multiplyScalar( 5 );
+            _acceleration.add( vector );
+            vector.set( _width, this.position.y, this.position.z );
+            vector = this.avoid( vector );
+            vector.multiplyScalar( 5 );
+            _acceleration.add( vector );
+            vector.set( this.position.x, - _height, this.position.z );
+            vector = this.avoid( vector );
+            vector.multiplyScalar( 5 );
+            _acceleration.add( vector );
+            vector.set( this.position.x, _height, this.position.z );
+            vector = this.avoid( vector );
+            vector.multiplyScalar( 5 );
+            _acceleration.add( vector );
+            vector.set( this.position.x, this.position.y, - _depth );
+            vector = this.avoid( vector );
+            vector.multiplyScalar( 5 );
+            _acceleration.add( vector );
+            vector.set( this.position.x, this.position.y, _depth );
+            vector = this.avoid( vector );
+            vector.multiplyScalar( 5 );
+            _acceleration.add( vector );
+          }/* else {
+            this.checkBounds();
+          }
+          */
+          if ( Math.random() > 0.5 ) {
+            this.flock( boids );
+          }
+          this.move();
+        };
+        this.flock = function ( boids ) {
+          if ( _goal ) {
+            _acceleration.add( this.reach( _goal, 0.005 ) );
+          }
+          _acceleration.add( this.alignment( boids ) );
+          _acceleration.add( this.cohesion( boids ) );
+          _acceleration.add( this.separation( boids ) );
+        };
+        this.move = function () {
+          this.velocity.add( _acceleration );
+          var l = this.velocity.length();
+          if ( l > _maxSpeed ) {
+            this.velocity.divideScalar( l / _maxSpeed );
+          }
+          this.position.add( this.velocity );
+          _acceleration.set( 0, 0, 0 );
+        };
+        this.checkBounds = function () {
+          if ( this.position.x >   _width ) this.position.x = - _width;
+          if ( this.position.x < - _width ) this.position.x =   _width;
+          if ( this.position.y >   _height ) this.position.y = - _height;
+          if ( this.position.y < - _height ) this.position.y =  _height;
+          if ( this.position.z >  _depth ) this.position.z = - _depth;
+          if ( this.position.z < - _depth ) this.position.z =  _depth;
+        };
+        //
+        this.avoid = function ( target ) {
+          var steer = new THREE.Vector3();
+          steer.copy( this.position );
+          steer.sub( target );
+          steer.multiplyScalar( 1 / this.position.distanceToSquared( target ) );
+          return steer;
+        };
+        this.repulse = function ( target ) {
+          var distance = this.position.distanceTo( target );
+          if ( distance < 150 ) {
+            var steer = new THREE.Vector3();
+            steer.subVectors( this.position, target );
+            steer.multiplyScalar( 0.5 / distance );
+            _acceleration.add( steer );
+          }
+        };
+        this.reach = function ( target, amount ) {
+          var steer = new THREE.Vector3();
+          steer.subVectors( target, this.position );
+          steer.multiplyScalar( amount );
+          return steer;
+        };
+        this.alignment = function ( boids ) {
+          var boid, velSum = new THREE.Vector3(),
+          count = 0;
+          for ( var i = 0, il = boids.length; i < il; i++ ) {
+            if ( Math.random() > 0.6 ) continue;
+            boid = boids[ i ];
+            distance = boid.position.distanceTo( this.position );
+            if ( distance > 0 && distance <= _neighborhoodRadius ) {
+              velSum.add( boid.velocity );
+              count++;
+            }
+          }
+          if ( count > 0 ) {
+            velSum.divideScalar( count );
+            var l = velSum.length();
+            if ( l > _maxSteerForce ) {
+              velSum.divideScalar( l / _maxSteerForce );
+            }
+          }
+          return velSum;
+        };
+        this.cohesion = function ( boids ) {
+          var boid, distance,
+          posSum = new THREE.Vector3(),
+          steer = new THREE.Vector3(),
+          count = 0;
+          for ( var i = 0, il = boids.length; i < il; i ++ ) {
+            if ( Math.random() > 0.6 ) continue;
+            boid = boids[ i ];
+            distance = boid.position.distanceTo( this.position );
+            if ( distance > 0 && distance <= _neighborhoodRadius ) {
+              posSum.add( boid.position );
+              count++;
+            }
+          }
+          if ( count > 0 ) {
+            posSum.divideScalar( count );
+          }
+          steer.subVectors( posSum, this.position );
+          var l = steer.length();
+          if ( l > _maxSteerForce ) {
+            steer.divideScalar( l / _maxSteerForce );
+          }
+          return steer;
+        };
+        this.separation = function ( boids ) {
+          var boid, distance,
+          posSum = new THREE.Vector3(),
+          repulse = new THREE.Vector3();
+          for ( var i = 0, il = boids.length; i < il; i ++ ) {
+            if ( Math.random() > 0.6 ) continue;
+            boid = boids[ i ];
+            distance = boid.position.distanceTo( this.position );
+            if ( distance > 0 && distance <= _neighborhoodRadius ) {
+              repulse.subVectors( this.position, boid.position );
+              repulse.normalize();
+              repulse.divideScalar( distance );
+              posSum.add( repulse );
+            }
+          }
+          return posSum;
+        }
+      }
+    </script>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>
-    </body>
+    <script>
+      var SCREEN_WIDTH = window.innerWidth,
+      SCREEN_HEIGHT = window.innerHeight,
+      SCREEN_WIDTH_HALF = SCREEN_WIDTH  / 2,
+      SCREEN_HEIGHT_HALF = SCREEN_HEIGHT / 2;
+      var camera, scene, renderer,
+      birds, bird;
+      var boid, boids;
+      //var stats;
+      init();
+      animate();
+      function init() {
+        camera = new THREE.PerspectiveCamera( 75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
+        camera.position.z = 450;
+        scene = new THREE.Scene();
+        birds = [];
+        boids = [];
+        for ( var i = 0; i < 200; i ++ ) {
+          boid = boids[ i ] = new Boid();
+          boid.position.x = Math.random() * 400 - 200;
+          boid.position.y = Math.random() * 400 - 200;
+          boid.position.z = Math.random() * 400 - 200;
+          boid.velocity.x = Math.random() * 2 - 1;
+          boid.velocity.y = Math.random() * 2 - 1;
+          boid.velocity.z = Math.random() * 2 - 1;
+          boid.setAvoidWalls( true );
+          boid.setWorldSize( 500, 500, 400 );
+          bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshBasicMaterial( { color:Math.random() * 0xffffff, side: THREE.DoubleSide } ) );
+          bird.phase = Math.floor( Math.random() * 62.83 );
+          scene.add( bird );
+        }
+        renderer = new THREE.CanvasRenderer();
+        renderer.setClearColor( 0xffffff );
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
+        document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+        document.getElementById("birds").appendChild( renderer.domElement );
+        //stats = new Stats();
+        //document.getElementById( 'container' ).appendChild(stats.dom);
+        //
+        window.addEventListener( 'resize', onWindowResize, false );
+      }
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+      }
+      function onDocumentMouseMove( event ) {
+        var vector = new THREE.Vector3( event.clientX - SCREEN_WIDTH_HALF, - event.clientY + SCREEN_HEIGHT_HALF, 0 );
+        for ( var i = 0, il = boids.length; i < il; i++ ) {
+          boid = boids[ i ];
+          vector.z = boid.position.z;
+          boid.repulse( vector );
+        }
+      }
+      //
+      function animate() {
+        requestAnimationFrame( animate );
+        //stats.begin();
+        render();
+        //stats.end();
+      }
+      function render() {
+        for ( var i = 0, il = birds.length; i < il; i++ ) {
+          boid = boids[ i ];
+          boid.run( boids );
+          bird = birds[ i ];
+          bird.position.copy( boids[ i ].position );
+          color = bird.material.color;
+          color.r = color.g = color.b = ( 500 - bird.position.z ) / 1000;
+          bird.rotation.y = Math.atan2( - boid.velocity.z, boid.velocity.x );
+          bird.rotation.z = Math.asin( boid.velocity.y / boid.velocity.length() );
+          bird.phase = ( bird.phase + ( Math.max( 0, bird.rotation.z ) + 0.1 )  ) % 62.83;
+          bird.geometry.vertices[ 5 ].y = bird.geometry.vertices[ 4 ].y = Math.sin( bird.phase ) * 5;
+        }
+        renderer.render( scene, camera );
+      }
+    </script>
+</body>
 </html>

@@ -1,0 +1,17 @@
+{
+  "name": "incwillow.github.io",
+  "homepage": "https://github.com/otaviopadovani/incwillow.github.io",
+  "description": "Willows Website",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "three.js": "threejs#*"
+  }
+}

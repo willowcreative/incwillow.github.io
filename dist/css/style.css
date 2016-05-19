@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  position: relative;
+  background: black; }
+
+section {
+  position: relative;
+  height: 700px;
+  border: 1px solid red; }
+  section h2 {
+    background: #1d1f21;
+    background: -webkit-linear-gradient(#999, #000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Podkova", serif;
+    font-size: 5em;
+    letter-spacing: -.08em;
+    text-transform: uppercase; }
+
+.intro {
+  overflow: hidden; }
+  .intro h2 {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 2; }
+  .intro canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; }
