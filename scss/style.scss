@@ -1,6 +1,8 @@
 $tileFont: 'Podkova', serif;
 $standardFont: 'Poppins', sans-serif;
 
+$imgURL: '../../img/';
+
 $savemehadesPink: #b156a1;
 
 * {
@@ -15,8 +17,8 @@ body {
 
 section {
 	position: relative;
-	height: 700px;
-	border: 1px solid red;
+	min-height: 850px;
+	overflow: hidden;
 	h2 {
 		color: #fff;
 		font-family: $tileFont;
@@ -27,7 +29,6 @@ section {
 }
 
 .intro {
-	overflow: hidden;
 	h2 {
 		position: absolute;
 		top: 45%;
@@ -45,5 +46,12 @@ section {
 }
 
 .savemehades {
-	background: $savemehadesPink;
+	background: url($imgURL + 'smhBG.jpg') $savemehadesPink center / cover no-repeat;
+	height: 1100px;
+	img {
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		margin-left: -1250px;
+	}
 }

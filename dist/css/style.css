@@ -8,25 +8,33 @@ body {
 
 section {
   position: relative;
-  height: 700px;
-  border: 1px solid red; }
+  min-height: 850px;
+  overflow: hidden; }
   section h2 {
     color: #fff;
     font-family: "Podkova", serif;
     font-size: 5em;
     text-transform: uppercase; }
 
-.intro {
-  overflow: hidden; }
-  .intro h2 {
+.intro h2 {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 2; }
+
+.intro canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; }
+
+.savemehades {
+  background: url("../../img/smhBG.jpg") #b156a1 center/cover no-repeat;
+  height: 1100px; }
+  .savemehades img {
     position: absolute;
-    top: 45%;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    z-index: 2; }
-  .intro canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1; }
+    left: 50%;
+    bottom: 0;
+    margin-left: -1250px; }
