@@ -1,6 +1,8 @@
 $tileFont: 'Podkova', serif;
 $standardFont: 'Poppins', sans-serif;
 
+$savemehadesPink: #b156a1;
+
 * {
 	margin: 0;
 	padding: 0;
@@ -43,5 +45,5 @@ section {
 }
 
 .savemehades {
-	background: ;
+	background: $savemehadesPink;
 }
