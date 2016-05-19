@@ -1,9 +1,14 @@
 $tileFont: 'Podkova', serif;
 $standardFont: 'Poppins', sans-serif;
 
-$imgURL: '../../img/';
+$imgRootURL: '../../img/';
 
 $savemehadesPink: #b156a1;
+$cartomancerBrown: #9e7d2d;
+
+@mixin background-product($imgURL, $color) {
+	background: url($imgRootURL + $imgURL) $color top center no-repeat;
+}
 
 * {
 	margin: 0;
@@ -23,8 +28,25 @@ section {
 		color: #fff;
 		font-family: $tileFont;
 		font-size: 5em;
-		
 		text-transform: uppercase;
+	}
+	p {
+		color: white;
+		font-family: $standardFont;
+		margin-bottom: 60px;
+	}
+	em {
+		color: white;
+		font-family: $standardFont;
+		font-weight: 300;
+		font-size: 1.3em;
+	}
+	article {
+		position: relative;
+		float: right;
+		width: 50%;
+		padding-top: 200px;
+		z-index: 3;
 	}
 }
 
@@ -46,12 +68,24 @@ section {
 }
 
 .savemehades {
-	background: url($imgURL + 'smhBG.jpg') $savemehadesPink center / cover no-repeat;
-	height: 1100px;
-	img {
+	@include background-product('smhBG.jpg', $savemehadesPink);
+	height: 1000px;
+	figure {
 		position: absolute;
 		left: 50%;
-		bottom: 0;
+		bottom: -20px;
 		margin-left: -1250px;
+	}
+	.drop {
+		position: absolute;
+		top: 100px;
+		right: 700px;
+	}
+}
+
+.cartomancer {
+	@include background-product('cartomancerBG.jpg', $cartomancerBrown);
+	article {
+		padding-top: 400px;
 	}
 }
