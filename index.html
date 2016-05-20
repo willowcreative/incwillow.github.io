@@ -34,7 +34,7 @@
       <h2>Save Me, Hades!</h2>
       <p>Save the Dead from a broken river Styx dam in this game for Google Cardboard</p>
 
-      <iframe width="650" height="365" src="https://www.youtube.com/embed/J6pf3WhdjEg" frameborder="0" allowfullscreen></iframe>
+      <iframe width="700" height="394" src="https://www.youtube.com/embed/J6pf3WhdjEg" frameborder="0" allowfullscreen></iframe>
     </article>
   </section>
 
@@ -229,11 +229,11 @@
       animate();
       function init() {
         camera = new THREE.PerspectiveCamera( 75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
-        camera.position.z = 350;
+        camera.position.z = 250;
         scene = new THREE.Scene();
         birds = [];
         boids = [];
-        for ( var i = 0; i < 400; i ++ ) {
+        for ( var i = 0; i < 500; i ++ ) {
           boid = boids[ i ] = new Boid();
           boid.position.x = Math.random() * 800 - 200;
           boid.position.y = Math.random() * 800 - 200;
@@ -243,12 +243,12 @@
           boid.velocity.z = Math.random() * 2 - 1;
           boid.setAvoidWalls( true );
           boid.setWorldSize( 500, 500, 400 );
-          bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshBasicMaterial( { color:Math.random() * 0xffffff, side: THREE.DoubleSide } ) );
+          bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshBasicMaterial( { color:0xd2ff00, side: THREE.DoubleSide } ) );
           bird.phase = Math.floor( Math.random() * 62.83 );
           scene.add( bird );
         }
         renderer = new THREE.CanvasRenderer();
-        renderer.setClearColor( 0x000000 );
+        renderer.setClearColor( 0x004eff );
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( SCREEN_WIDTH, 1080 );
         document.addEventListener( 'mousemove', onDocumentMouseMove, false );
@@ -285,7 +285,7 @@
           bird = birds[ i ];
           bird.position.copy( boids[ i ].position );
           color = bird.material.color;
-          color.r = color.g = color.b = ( 700 - bird.position.z );
+          //color.r = color.g = color.b = ( 700 - bird.position.z );
           bird.rotation.y = Math.atan2( - boid.velocity.z, boid.velocity.x );
           bird.rotation.z = Math.asin( boid.velocity.y / boid.velocity.length() );
           bird.phase = ( bird.phase + ( Math.max( 0, bird.rotation.z ) + 0.1 )  ) % 62.83;

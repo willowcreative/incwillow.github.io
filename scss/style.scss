@@ -39,13 +39,13 @@ section {
 		color: white;
 		font-family: $standardFont;
 		font-weight: 300;
-		font-size: 1.3em;
+		font-size: 1.35em;
 	}
 	article {
-		position: relative;
-		float: right;
-		width: 58%;
-		padding-top: 200px;
+		position: absolute;
+		top: 200px;
+		left: 48%;
+		width: 720px;
 		z-index: 3;
 	}
 }
@@ -58,6 +58,8 @@ section {
 		width: 100%;
 		text-align: center;
 		z-index: 2;
+		color: #fff;
+		//text-shadow: 5px 5px 0 #ff00cc;
 	}
 	canvas {
 		position: absolute;
@@ -69,23 +71,36 @@ section {
 
 .savemehades {
 	@include background-product('smhBG.jpg', $savemehadesPink);
-	height: 1000px;
 	figure {
 		position: absolute;
-		left: 50%;
+		left: 30%;
 		bottom: -20px;
-		margin-left: -1250px;
+		margin-left: -1350px;
+		opacity: 0;
+		transition: left .3s, opacity .3s;
 	}
 	.drop {
 		position: absolute;
-		top: 100px;
+		top: 50px;
 		right: 700px;
+	}
+	&:hover {
+		figure {
+			left: 50%;
+			opacity: 1;
+			transition: left 1s, opacity 1s;
+		}
+		.drop {
+			top: 100px;
+			transition: top 2s;
+			transition-delay: .3s;
+		}
 	}
 }
 
 .cartomancer {
 	@include background-product('cartomancerBG.jpg', $cartomancerBrown);
 	article {
-		padding-top: 400px;
+		top: 450px;
 	}
 }
