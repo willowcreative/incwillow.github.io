@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  position: relative;
+  background: black;
+  color: white;
+  font-family: "Poppins", sans-serif; }
+
+a {
+  color: #fff;
+  text-decoration: none; }
+
+section {
+  position: relative;
+  min-height: 1080px;
+  overflow: hidden; }
+  section h2 {
+    color: #fff;
+    font-family: "Podkova", serif;
+    font-size: 5em;
+    text-transform: uppercase; }
+  section p {
+    margin-bottom: 90px; }
+  section em {
+    font-weight: 300;
+    font-size: 1.35em; }
+  section article {
+    position: absolute;
+    top: 200px;
+    left: 48%;
+    width: 720px;
+    z-index: 3; }
+
+.intro h2 {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  color: #fff; }
+
+.intro canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; }
+
+.savemehades {
+  background: url("../../img/smhBG.jpg") #b156a1 top center no-repeat; }
+  .savemehades figure {
+    position: absolute;
+    left: 30%;
+    bottom: -20px;
+    margin-left: -1350px;
+    opacity: 0;
+    transition: left .3s, opacity .3s; }
+  .savemehades .drop {
+    position: absolute;
+    top: 50px;
+    right: 700px; }
+  .savemehades:hover figure {
+    left: 50%;
+    opacity: 1;
+    transition: left 1s, opacity 1s; }
+  .savemehades:hover .drop {
+    top: 100px;
+    transition: top 2s;
+    transition-delay: .3s; }
+
+.cartomancer {
+  background: url("../../img/cartomancerBG.jpg") #9e7d2d top center no-repeat; }
+  .cartomancer article {
+    top: 450px; }
+
+footer {
+  background: url("../../img/footerBG.jpg") #70c27c top center no-repeat;
+  background-position: bottom left; }
+  footer nav {
+    position: relative;
+    text-align: center;
+    padding: 150px 0 50px 0; }
+    footer nav:before {
+      content: '';
+      background: url("../../img/footer-person.jpg") right bottom no-repeat;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 357px;
+      height: 524px;
+      margin-left: 350px; }
+  footer a {
+    display: inline-block;
+    float: none;
+    clear: both; }
+  footer .social-media {
+    padding: 50px 0; }
+    footer .social-media li {
+      display: inline-block;
+      margin-left: 20px; }
+    footer .social-media a {
+      color: #00ff57;
+      font-size: 3em;
+      text-indent: -9999px;
+      transition: .3s all; }
+      footer .social-media a:before {
+        display: block;
+        float: left;
+        text-indent: 0; }
+    footer .social-media .fa-facebook-square:hover {
+      color: #3b5998;
+      transition: .3s all; }
+    footer .social-media .fa-linkedin-square:hover {
+      color: #0077b5;
+      transition: .3s all; }
+  footer .contact {
+    color: #454544;
+    background: #eee810;
+    box-shadow: 5px 5px 0 #ed2891;
+    font-size: 1.3em;
+    padding: 10px 20px;
+    transition: all .5s; }
+    footer .contact:hover {
+      padding: 10px 22px;
+      box-shadow: 10px 10px 0 #ed2891;
+      transition: all .5s; }
+  footer .phone {
+    font-size: 1.8em;
+    font-weight: 300;
+    letter-spacing: -0.1em;
+    padding: 50px 0 0 0; }
+  footer address {
+    font-style: normal;
+    font-size: 1.3em;
+    font-weight: 300; }
+  footer span {
+    font-size: .7em; }

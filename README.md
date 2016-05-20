@@ -1,2 +1,2 @@
 # incwillow.github.io
-Hotsite for CDM students
+Do a bower install and then run gulp
