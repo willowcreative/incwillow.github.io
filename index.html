@@ -46,6 +46,26 @@
     </article>
   </section>
 
+  <footer>
+    <nav>
+      <ul>
+        <li><a href="mailto:contact@willowcreative.io" class="contact"><i class="fa fa-envelope" aria-hidden="true"></i> contact@willowcreative.io</a></li>
+        <li><a href="tel:1-604-992-7822" class="phone">+1 (604) 992 7822</a></li>
+      </ul>
+
+      <ul class="social-media">
+        <li><a href="" class="fa fa-facebook-square">Facebook</a></li>
+        <li><a href="" class="fa fa-linkedin-square">Linkedin</a></li>
+      </ul>
+
+      <div>
+        <address><i class="fa fa-map-marker" aria-hidden="true"></i> Vancouver, British Columbia, Canada</address>
+        <span>Copyright 2016 Wiilow Creative Inc. All Rights Reserved</span>
+      </div>
+    </nav>
+  </footer>
+
+  <script src="https://use.fontawesome.com/abf2903b19.js"></script>
   <script src="dist/js/all.min.js"></script>
 
   <script>
@@ -243,12 +263,13 @@
           boid.velocity.z = Math.random() * 2 - 1;
           boid.setAvoidWalls( true );
           boid.setWorldSize( 500, 500, 400 );
-          bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshBasicMaterial( { color:0xd2ff00, side: THREE.DoubleSide } ) );
+          //bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshBasicMaterial( { color:0xd2ff00, side: THREE.DoubleSide } ) );
+          bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshBasicMaterial( { color:0xffffff, side: THREE.DoubleSide } ) );
           bird.phase = Math.floor( Math.random() * 62.83 );
           scene.add( bird );
         }
         renderer = new THREE.CanvasRenderer();
-        renderer.setClearColor( 0x004eff );
+        renderer.setClearColor( 0xc32850 );
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( SCREEN_WIDTH, 1080 );
         document.addEventListener( 'mousemove', onDocumentMouseMove, false );

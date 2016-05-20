@@ -4,7 +4,13 @@
 
 body {
   position: relative;
-  background: black; }
+  background: black;
+  color: white;
+  font-family: "Poppins", sans-serif; }
+
+a {
+  color: #fff;
+  text-decoration: none; }
 
 section {
   position: relative;
@@ -16,12 +22,8 @@ section {
     font-size: 5em;
     text-transform: uppercase; }
   section p {
-    color: white;
-    font-family: "Poppins", sans-serif;
-    margin-bottom: 60px; }
+    margin-bottom: 90px; }
   section em {
-    color: white;
-    font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-size: 1.35em; }
   section article {
@@ -73,3 +75,66 @@ section {
   background: url("../../img/cartomancerBG.jpg") #9e7d2d top center no-repeat; }
   .cartomancer article {
     top: 450px; }
+
+footer {
+  background: url("../../img/footerBG.jpg") #70c27c top center no-repeat;
+  background-position: bottom left; }
+  footer nav {
+    position: relative;
+    text-align: center;
+    padding: 150px 0 50px 0; }
+    footer nav:before {
+      content: '';
+      background: url("../../img/footer-person.jpg") right bottom no-repeat;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 357px;
+      height: 524px;
+      margin-left: 350px; }
+  footer a {
+    display: inline-block;
+    float: none;
+    clear: both; }
+  footer .social-media {
+    padding: 50px 0; }
+    footer .social-media li {
+      display: inline-block;
+      margin-left: 20px; }
+    footer .social-media a {
+      color: #00ff57;
+      font-size: 3em;
+      text-indent: -9999px;
+      transition: .3s all; }
+      footer .social-media a:before {
+        display: block;
+        float: left;
+        text-indent: 0; }
+    footer .social-media .fa-facebook-square:hover {
+      color: #3b5998;
+      transition: .3s all; }
+    footer .social-media .fa-linkedin-square:hover {
+      color: #0077b5;
+      transition: .3s all; }
+  footer .contact {
+    color: #454544;
+    background: #eee810;
+    box-shadow: 5px 5px 0 #ed2891;
+    font-size: 1.3em;
+    padding: 10px 20px;
+    transition: all .5s; }
+    footer .contact:hover {
+      padding: 10px 22px;
+      box-shadow: 10px 10px 0 #ed2891;
+      transition: all .5s; }
+  footer .phone {
+    font-size: 1.8em;
+    font-weight: 300;
+    letter-spacing: -0.1em;
+    padding: 50px 0 0 0; }
+  footer address {
+    font-style: normal;
+    font-size: 1.3em;
+    font-weight: 300; }
+  footer span {
+    font-size: .7em; }
