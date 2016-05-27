@@ -31,10 +31,16 @@ a {
 }
 
 h1 {
-	background: url($imgRootURL + 'logo.svg') top left no-repeat;
+	position: absolute;
+	top: 40px;
+	left: 50%;
+	background: url($imgRootURL + 'logo.svg') top center no-repeat;
 	background-size: contain;
 	height: 300px;
-	border: 1px solid red;
+	width: 250px;
+	text-indent: -9999px;
+	z-index: 2;
+	margin-left: -125px;
 }
 
 section {
@@ -44,10 +50,11 @@ section {
 	h2 {
 		color: #fff;
 		font-family: $tileFont;
-		font-size: 5em;
+		font-size: 4.5em;
 		text-transform: uppercase;
 	}
 	p {
+		font-size: .9em;
 		margin-bottom: 90px;
 	}
 	em {
@@ -62,9 +69,13 @@ section {
 		margin-left: -150px;
 		z-index: 3;
 	}
+	header {
+		position: relative;
+	}
 }
 
 .intro {
+	min-height: auto;
 	h2 {
 		position: absolute;
 		top: 45%;
@@ -85,6 +96,11 @@ section {
 
 .savemehades {
 	@include background-product('smhBG.jpg', $savemehadesPink);
+	header {
+		background: url($imgRootURL + 'winner.png') center left no-repeat;
+		background-size: 100px;
+		padding-left: 120px;
+	}
 	figure {
 		position: absolute;
 		left: 30%;
@@ -98,7 +114,7 @@ section {
 		top: 50px;
 		right: 700px;
 	}
-	&:hover {
+	&.selected {
 		figure {
 			left: 50%;
 			opacity: 1;
@@ -120,11 +136,20 @@ section {
 	figure {
 		position: absolute;
 		top: 50%;
-		left: 50%;
+		left: 40%;
 		height: 721px;
 		width: 491px;
-		margin: -425px 0 0 -595px;
+		margin: -425px 0 0 -695px;
+		opacity: 0;
 		transform: rotate(4deg);
+	}
+	&.selected {
+		figure {
+			left: 50%;
+			opacity: 1;
+			transform: rotate(4deg);
+			transition: all .5s;
+		}
 	}
 }
 

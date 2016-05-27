@@ -11,13 +11,16 @@
   <link href='https://fonts.googleapis.com/css?family=Poppins:300,400|Podkova:700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="dist/css/style.css">
 
+  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
 
 <body>
-  <h1><img src="../img/logo"></h1>
+  <h1>Willow</h1>
 
   <section class="intro">
     <h2>We Make Reality Cooler</h2>
@@ -31,8 +34,10 @@
     </figure>
     
     <article>
-      <h2>Save Me, Hades!</h2>
-      <p>Save the Dead from a broken river Styx dam in this game for Google Cardboard</p>
+      <header>
+        <h2>Save Me, Hades!</h2>
+        <p>Save the Dead from a broken river Styx dam in this game for Google Cardboard</p>
+      </header>
 
       <iframe width="700" height="394" src="https://www.youtube.com/embed/J6pf3WhdjEg" frameborder="0" allowfullscreen></iframe>
     </article>
@@ -58,8 +63,8 @@
       </ul>
 
       <ul class="social-media">
-        <li><a href="" class="fa fa-facebook-square">Facebook</a></li>
-        <li><a href="" class="fa fa-linkedin-square">Linkedin</a></li>
+        <li><a href="https://www.facebook.com/willowcreativeinc" target="_blank" class="fa fa-facebook-square">Facebook</a></li>
+        <li><a href="https://www.linkedin.com/company/willow-creative-inc." target="blank" class="fa fa-linkedin-square">Linkedin</a></li>
       </ul>
 
       <div>
@@ -71,6 +76,30 @@
 
   <script src="https://use.fontawesome.com/abf2903b19.js"></script>
   <script src="dist/js/all.min.js"></script>
+
+  <script>
+    var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth,
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+    sections = document.getElementsByTagName('section');
+    intro = document.getElementsByClassName('intro')[0];
+    birds = document.getElementById('birds');
+
+    intro.style.height = y + 'px';
+    birds.style.height = y + 'px';
+
+    for(i = 0; i < sections.length; i++) {
+      var currentSection = sections[i];
+
+      currentSection.addEventListener('mouseover', function() {
+        if(!this.classList.contains('selected'))
+          this.className += ' selected';
+      });
+    }    
+  </script>
 
   <script>
       // Based on http://www.openprocessing.org/visuals/?visualID=6910
@@ -275,7 +304,7 @@
         renderer = new THREE.CanvasRenderer();
         renderer.setClearColor( 0xc32850 );
         renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( SCREEN_WIDTH, 1080 );
+        renderer.setSize( SCREEN_WIDTH, document.getElementById('birds').offsetHeight );
         document.addEventListener( 'mousemove', onDocumentMouseMove, false );
         document.getElementById("birds").appendChild( renderer.domElement );
         //stats = new Stats();

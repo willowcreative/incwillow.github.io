@@ -13,10 +13,16 @@ a {
   text-decoration: none; }
 
 h1 {
-  background: url("../../img/logo.svg") top left no-repeat;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  background: url("../../img/logo.svg") top center no-repeat;
   background-size: contain;
   height: 300px;
-  border: 1px solid red; }
+  width: 250px;
+  text-indent: -9999px;
+  z-index: 2;
+  margin-left: -125px; }
 
 section {
   position: relative;
@@ -25,9 +31,10 @@ section {
   section h2 {
     color: #fff;
     font-family: "Podkova", serif;
-    font-size: 5em;
+    font-size: 4.5em;
     text-transform: uppercase; }
   section p {
+    font-size: .9em;
     margin-bottom: 90px; }
   section em {
     font-weight: 300;
@@ -39,24 +46,31 @@ section {
     width: 720px;
     margin-left: -150px;
     z-index: 3; }
+  section header {
+    position: relative; }
 
-.intro h2 {
-  position: absolute;
-  top: 45%;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  z-index: 2;
-  color: #fff; }
-
-.intro canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1; }
+.intro {
+  min-height: auto; }
+  .intro h2 {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    color: #fff; }
+  .intro canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; }
 
 .savemehades {
   background: url("../../img/smhBG.jpg") #b156a1 top center no-repeat; }
+  .savemehades header {
+    background: url("../../img/winner.png") center left no-repeat;
+    background-size: 100px;
+    padding-left: 120px; }
   .savemehades figure {
     position: absolute;
     left: 30%;
@@ -68,11 +82,11 @@ section {
     position: absolute;
     top: 50px;
     right: 700px; }
-  .savemehades:hover figure {
+  .savemehades.selected figure {
     left: 50%;
     opacity: 1;
     transition: left 1s, opacity 1s; }
-  .savemehades:hover .drop {
+  .savemehades.selected .drop {
     top: 100px;
     transition: top 2s;
     transition-delay: .3s; }
@@ -84,11 +98,17 @@ section {
   .cartomancer figure {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 40%;
     height: 721px;
     width: 491px;
-    margin: -425px 0 0 -595px;
+    margin: -425px 0 0 -695px;
+    opacity: 0;
     transform: rotate(4deg); }
+  .cartomancer.selected figure {
+    left: 50%;
+    opacity: 1;
+    transform: rotate(4deg);
+    transition: all .5s; }
 
 footer {
   background: url("../../img/footerBG.jpg") #70c27c top center no-repeat;
