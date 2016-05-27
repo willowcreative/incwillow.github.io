@@ -35,8 +35,9 @@ section {
   section article {
     position: absolute;
     top: 200px;
-    left: 48%;
+    left: 50%;
     width: 720px;
+    margin-left: -150px;
     z-index: 3; }
 
 .intro h2 {
