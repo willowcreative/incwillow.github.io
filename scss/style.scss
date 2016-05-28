@@ -29,45 +29,49 @@ a {
 	color: $linkColor;
 	text-decoration: none;
 }
+li {
+	list-style: none;
+}
 
 h1 {
 	position: absolute;
-	top: 40px;
-	left: 50%;
-	background: url($imgRootURL + 'logo.svg') top center no-repeat;
+	top: 2%;
+	left: 0;
+	display: block;
+	background: url($imgRootURL + 'logo.svg') center no-repeat;
 	background-size: contain;
-	height: 300px;
-	width: 250px;
+	height: 150px;
+	width: 100%;
 	text-indent: -9999px;
 	z-index: 2;
-	margin-left: -125px;
+	margin-left: 0;
 }
 
 section {
 	position: relative;
-	min-height: 1080px;
+	display: block;
+	float: left;
+	width: 100%;
 	overflow: hidden;
+	background-size: cover;
+	text-align: center;
 	h2 {
 		color: #fff;
 		font-family: $tileFont;
-		font-size: 4.5em;
+		font-size: 3em;
+		line-height: .8em;
+		letter-spacing: -.08em;
 		text-transform: uppercase;
+		padding: 0 5%;
 	}
 	p {
 		font-size: .9em;
-		margin-bottom: 90px;
+		margin: 15px 0 30px 0;
+		padding: 0 5%;
 	}
 	em {
 		font-weight: 300;
-		font-size: 1.35em;
-	}
-	article {
-		position: absolute;
-		top: 200px;
-		left: 50%;
-		width: 720px;
-		margin-left: -150px;
-		z-index: 3;
+		font-size: 1em;
 	}
 	header {
 		position: relative;
@@ -80,11 +84,10 @@ section {
 		position: absolute;
 		top: 45%;
 		left: 0;
-		width: 100%;
+		width: 90%;
 		text-align: center;
 		z-index: 2;
 		color: #fff;
-		//text-shadow: 5px 5px 0 #ff00cc;
 	}
 	canvas {
 		position: absolute;
@@ -97,51 +100,47 @@ section {
 .savemehades {
 	@include background-product('smhBG.jpg', $savemehadesPink);
 	header {
-		background: url($imgRootURL + 'winner.png') center left no-repeat;
+		background: url($imgRootURL + 'winner.png') center top no-repeat;
 		background-size: 100px;
-		padding-left: 120px;
+		padding-top: 120px;
 	}
 	figure {
-		position: absolute;
-		left: 30%;
-		bottom: -20px;
-		margin-left: -1350px;
-		opacity: 0;
-		transition: left .3s, opacity .3s;
+		background: #7caae5;
+		display: inline-block;
+		position: relative;
+		border-radius: 50%;
+		overflow: hidden;
+		width: 300px;
+		height: 300px;
+		margin: 50px 0;
+		img {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
 	}
 	.drop {
-		position: absolute;
-		top: 50px;
-		right: 700px;
+		display: none;
 	}
-	&.selected {
-		figure {
-			left: 50%;
-			opacity: 1;
-			transition: left 1s, opacity 1s;
-		}
-		.drop {
-			top: 100px;
-			transition: top 2s;
-			transition-delay: .3s;
-		}
+	iframe {
+		width: 320px;
+		height: 200px;
+		margin: 0 0 50px 0;
 	}
 }
 
 .cartomancer {
 	@include background-product('cartomancerBG.jpg', $cartomancerBrown);
+	padding-bottom: 50px;
 	article {
 		top: 450px;
 	}
 	figure {
-		position: absolute;
-		top: 50%;
-		left: 40%;
-		height: 721px;
-		width: 491px;
-		margin: -425px 0 0 -695px;
-		opacity: 0;
-		transform: rotate(4deg);
+		img {
+			width: 65%;
+			margin: 50px 0;
+		}
 	}
 	&.selected {
 		figure {
@@ -161,6 +160,7 @@ footer {
 		text-align: center;
 		padding: 150px 0 50px 0;
 		&:before {
+			display: none;
 			content: '';
 			background: url($imgRootURL + 'footer-person.jpg') right bottom no-repeat;
 			position: absolute;
@@ -211,10 +211,10 @@ footer {
 		background: $footerContact;
 		box-shadow: 5px 5px 0 $footerContactShadow;
 		font-size: 1.3em;
+		margin-top: 50px;
 		padding: 10px 20px;
 			transition: all .5s;
 		&:hover {
-			//background: $footerContactShadow;
 			padding: 10px 22px;
 			box-shadow: 10px 10px 0 $footerContactShadow;
 			transition: all .5s;
@@ -228,10 +228,151 @@ footer {
 	}
 	address {
 		font-style: normal;
-		font-size: 1.3em;
+		font-size: 1em;
 		font-weight: 300;
 	}
 	span {
-		font-size: .7em;
+		font-size: .6em;
+	}
+}
+
+
+
+@media only screen and (min-width: 800px) {
+	h1 {
+		height: 200px;
+	}
+	section {
+		min-height: 1080px;
+		background-size: initial;
+		text-align: left;
+		h2 {
+			font-size: 4.5em;
+			letter-spacing: 0;
+			padding: 0;
+		}
+		p {
+			margin-bottom: 90px;
+			padding: 0;
+		}
+		article {
+			position: absolute;
+			top: 200px;
+			left: 50%;
+			width: 720px;
+			margin-left: -150px;
+			z-index: 3;
+		}
+		em {
+			font-size: 1.35em;
+		}
+	}
+
+	.intro {
+		h2 {
+			padding: 0 5%;
+		}
+	}
+
+	.savemehades {
+		header {
+			background: url($imgRootURL + 'winner.png') center left no-repeat;
+			background-size: 100px;
+			padding-top: 0;
+			padding-left: 120px;
+		}
+		figure {
+			background: none;
+			position: absolute;
+			left: 30%;
+			bottom: -20px;
+			margin: 0;
+			margin-left: -1300px;
+			opacity: 0;
+			width: 1370px;
+			height: 1080px;
+			transition: left .3s, opacity .3s;
+			border-radius: 0;
+			img {
+				position: relative;
+				z-index: 2;
+				width: auto;
+			}
+		}
+		.drop {
+			display: block;
+			position: absolute;
+			top: 20px;
+			left: 600px;
+			width: 130px;
+			height: 300px;
+			z-index: 3;
+		}
+		iframe {
+			width: 700px;
+			height: 394px;
+			margin: 0;
+		}
+		&.selected {
+			figure {
+				left: 50%;
+				opacity: 1;
+				transition: left 1s, opacity 1s;
+			}
+			.drop {
+				top: 100px;
+				transition: top 2s;
+				transition-delay: .3s;
+			}
+		}
+	}
+
+
+	.cartomancer {
+		@include background-product('cartomancerBG.jpg', $cartomancerBrown);
+		padding-bottom: 0;
+		article {
+			top: 450px;
+		}
+		figure {
+			position: absolute;
+			top: 50%;
+			left: 40%;
+			height: 721px;
+			width: 491px;
+			margin: -425px 0 0 -695px;
+			opacity: 0;
+			transform: rotate(4deg);
+			img {
+				width: auto;
+			}
+		}
+		&.selected {
+			figure {
+				left: 50%;
+				opacity: 1;
+				transform: rotate(4deg);
+				transition: all .5s;
+			}
+		}
+	}
+
+	footer {
+		address {
+			font-size: 1.3em;
+		}
+		span {
+			font-size: .7em;
+		}
+		nav {
+			display: inline-block;
+			width: 100%;
+			&:before {
+				display: inline-block;
+			}
+		}
+		.contact {
+			margin-top: 0;
+		}
 	}
 }
